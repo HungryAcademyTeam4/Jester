@@ -1,6 +1,7 @@
 class GithubMessagesController < ApplicationController
 
   def create 
+    puts "#{params.inspect}"
     author          = params["commits"]["author"]["name"]
     author_username = params["commits"]["author"]["username"]
     chat_room_id    = params["id"]
