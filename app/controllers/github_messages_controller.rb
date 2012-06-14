@@ -2,16 +2,17 @@ class GithubMessagesController < ApplicationController
 
   def create 
     puts "#{params.inspect}"
-    author          = params["commits"]["author"]["name"]
-    author_username = params["commits"]["author"]["username"]
+    author          = params["payload"]["author"]["name"]
+    author_username = params["payload"]["author"]["username"]
     chat_room_id    = params["id"]
-    commit          = params["commits"]["message"]
-    repo            = params["repository"]["name"]
-    url             = params["commits"]["url"]
+    commit          = params["payload"]["message"]
+    repo            = params["payload"]["repository"]["name"]
+    url             = params["payload"]["url"]
 
+    cid = "#{chat_room_id}".to_i
     msg = "#{author}(#{author_username}) pushed a commit (#{commit}) to #{repo} at #{url}."
 
-    Message.create(:content => msg, :user_id => "github", :user => "github", :chatroom_id => "")
+    Message.create(:content => msg, :user_id => "github", :user => "github", :chat_room_id => cid)
   end 
 
   def index 
