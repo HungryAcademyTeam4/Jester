@@ -5,9 +5,9 @@ class GithubMessagesController < ApplicationController
     puts "------------------------"
     puts "PAYLOAD: #{params['payload'].inspect}"
     puts "------------------------"
-    puts "AUTHOR: #{params['payload']['author'].inspect}"
-    author          = params["payload"]["author"]["name"]
-    author_username = params["payload"]["author"]["username"]
+    puts "AUTHOR: #{params['payload']['committer'].inspect}"
+    author          = params["payload"]["committer"]["name"]
+    author_username = params["payload"]["committer"]["username"]
     chat_room_id    = params["id"]
     commit          = params["payload"]["message"]
     repo            = params["payload"]["repository"]["name"]
