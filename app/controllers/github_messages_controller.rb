@@ -12,7 +12,7 @@ class GithubMessagesController < ApplicationController
     cid = "#{chat_room_id}".to_i
     msg = "#{author}(#{author_username}) pushed a commit (#{commit}) to #{repo} at #{url}."
 
-    Message.create(:content => msg, :user_id => "github", :user => "github", :chat_room_id => cid)
+    Message.create(:message => {:content => msg, :user_id => "github", :user => "github", :chat_room_id => cid)})
   end 
 
   def index 
