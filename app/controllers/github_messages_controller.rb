@@ -1,12 +1,12 @@
 class GithubMessagesController < ApplicationController
 
   def create 
-    author          = params["commits"].first["author"]["name"]
-    author_username = params["commits"].first["author"]["username"]
+    author          = params["commits"]["author"]["name"]
+    author_username = params["commits"]["author"]["username"]
     chat_room_id    = params["id"]
-    commit          = params["commits"].first["message"]
+    commit          = params["commits"]["message"]
     repo            = params["repository"]["name"]
-    url             = params["commits"].first["url"]
+    url             = params["commits"]["url"]
 
     msg = "#{author}(#{author_username}) pushed a commit (#{commit}) to #{repo} at #{url}."
 

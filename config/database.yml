@@ -19,7 +19,8 @@ test:
   timeout: 5000
 
 production:
+  production:
   adapter: mysql2
-  database: db/production.mysql2
-  pool: 5
-  timeout: 5000
+  database: jester_production
+  user: root
+  password: databucket2
