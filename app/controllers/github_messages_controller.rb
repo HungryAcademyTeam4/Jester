@@ -1,7 +1,11 @@
 class GithubMessagesController < ApplicationController
 
   def create 
-    puts "#{params.inspect}"
+    puts "PARAMS:#{params.inspect}"
+    puts "------------------------"
+    puts "PAYLOAD: #{params['payload'].inspect}"
+    puts "------------------------"
+    puts "AUTHOR: #{params['payload']['author'].inspect}"
     author          = params["payload"]["author"]["name"]
     author_username = params["payload"]["author"]["username"]
     chat_room_id    = params["id"]
