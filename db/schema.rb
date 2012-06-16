@@ -15,8 +15,9 @@ ActiveRecord::Schema.define(:version => 20120613020012) do
 
   create_table "github_messages", :force => true do |t|
     t.string   "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "chatroom_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
